@@ -77,19 +77,42 @@ Normalizzando avrei la velocità di rotazione intorno ai tre assi di riferimento
         Serial.print(" Xraw = ");
         Serial.print(rawGyro.XAxis);
         
+        
+## Calcolo della posizione angolare 
+
+Dato che conosciamo la velocità angolare del sensore possiamo risalire alla posizione angolare **rispetto alla posizione iniziale al reset** moltiplicando tale velocità per il tempo. In questo modo si ottiene lo spazio angolare percorso (in realtà per alte velocità il risultato nel tempo non è accurato)
+
+        unsigned long timer = 0;
+        float timeStep = 0.01; 
+        
+ Il calcolo viene eseguto ogni 10 milisecondi.
+
+        float yaw = 0;
+        
+ In questo caso interessa la rotazione attorno all'asse z (imbardata)
+
+        void loop()
+        {
+        timer = millis();
+        Vector norm = mpu.readNormalizeGyro();
+        yaw = yaw + norm.ZAxis * timeStep;
+        ......
+
+
+Aspetto che passino i millisecondi restanti dei dieci disponibili
+  
+        delay((timeStep*1000) - (millis() - timer));
+ 
+        
 ## Calibrazione del sensore
 
 Se si vuole calibrare il giroscopio basta richiamare la funzione:
 
         mpu.calibrateGyro(); 
         
-        Serial.print(" * Accelerometer:         ");
-        switch(mpu.getRange())
-        {
-        case MPU6050_RANGE_16G:            Serial.println("+/- 16 g"); break;
-        case MPU6050_RANGE_8G:             Serial.println("+/- 8 g"); break;
-        case MPU6050_RANGE_4G:             Serial.println("+/- 4 g"); break;
-        case MPU6050_RANGE_2G:             Serial.println("+/- 2 g"); break;
-        }  
-
-
+ ## Impostazione sensibilità       
+     
+ Se si vuole impostare la sensibilità massima basta impostarla a livello 3 (dove 0 è il livello minimo)
+ 
+        mpu.setThreshold(3);
+ 
