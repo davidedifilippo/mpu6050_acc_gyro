@@ -1,11 +1,11 @@
 
 
-##Utilizzo della libreria MPU6050
+## Utilizzo della libreria MPU6050
 
 - **giroscopio**  misura la velocità di rotazione attorno agli assi in gradi al secondo
 - **accelerometro**  misura l'accelerazione nelle tre direzioni x, y, z 
 
-##Utilizzo della libreria
+## Utilizzo della libreria
 
 Si include la libreria di gestione del sensore:
 
