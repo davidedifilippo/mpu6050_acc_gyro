@@ -44,7 +44,7 @@ se divido per 9.81 questa quantità, troverò l'accelerazione in g. Ad esempio s
 
 ## Lettura dei dati dal giroscopio
 
-Anche in questo caso possiamo leggre i dati grezzi oppure i dati normalizzati. Se il fondo scala fosse +-250°/s allora in corrisposndenza della velocità di rortazione massimaavrei  il massimo positivo ossia 0111 1111 1111 1111 o anche 0x7FF.
+Anche in questo caso possiamo leggere i dati grezzi oppure i dati normalizzati. Se il fondo scala fosse +-250°/s allora in corrispondenza della velocità di rotazione massima avrei il massimo positivo ossia 0111 1111 1111 1111 o anche 0x7FF.
 
 
         Vector rawGyro = mpu.readRawGyro();
