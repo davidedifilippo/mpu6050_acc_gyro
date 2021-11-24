@@ -19,9 +19,28 @@ Si inizializza il sensore dichiarando i fondo scala per il giroscopio e l'accele
 
     mpu.begin(MPU6050_SCALE_2000DPS, MPU6050_RANGE_2G);
 
-Se non si specifica nessun valore nella chiamata allora i valori di default risulteranno +-2G per l'accelerazione e +-250°/s per il giroscopio
+**Se non si specifica nessun valore nella chiamata allora i valori di default risulteranno +-2G per l'accelerazione e +-250°/s per il giroscopio**
 
-
+Per controllare il fondo scala impostato per la'ccelerometro si può utilizzare la seguente porzione di codice:
+        
+        Serial.print(" Fondo scala accelerometro:         ");
+        
+        switch(mpu.getRange())
+        {
+        case MPU6050_RANGE_16G:            Serial.println("+/- 16 g"); break;
+        case MPU6050_RANGE_8G:             Serial.println("+/- 8 g"); break;
+        case MPU6050_RANGE_4G:             Serial.println("+/- 4 g"); break;
+        case MPU6050_RANGE_2G:             Serial.println("+/- 2 g"); break;
+        }  
+        
+        Serial.print(" * Gyroscope:         ");
+        switch(mpu.getScale())
+        {
+        case MPU6050_SCALE_2000DPS:        Serial.println("2000 dps"); break;
+        case MPU6050_SCALE_1000DPS:        Serial.println("1000 dps"); break;
+        case MPU6050_SCALE_500DPS:         Serial.println("500 dps"); break;
+        case MPU6050_SCALE_250DPS:         Serial.println("250 dps"); break;
+        } 
 
 ### Lettura dei **dati grezzi** dell'accelerometro
 
@@ -58,6 +77,19 @@ Normalizzando avrei la velocità di rotazione intorno ai tre assi di riferimento
         Serial.print(" Xraw = ");
         Serial.print(rawGyro.XAxis);
         
+## Calibrazione del sensore
 
+Se si vuole calibrare il giroscopio basta richiamare la funzione:
+
+        mpu.calibrateGyro(); 
+        
+        Serial.print(" * Accelerometer:         ");
+        switch(mpu.getRange())
+        {
+        case MPU6050_RANGE_16G:            Serial.println("+/- 16 g"); break;
+        case MPU6050_RANGE_8G:             Serial.println("+/- 8 g"); break;
+        case MPU6050_RANGE_4G:             Serial.println("+/- 4 g"); break;
+        case MPU6050_RANGE_2G:             Serial.println("+/- 2 g"); break;
+        }  
 
 
