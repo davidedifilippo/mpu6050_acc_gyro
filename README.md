@@ -33,7 +33,7 @@ Per controllare il fondo scala impostato per la'ccelerometro si può utilizzare 
         case MPU6050_RANGE_2G:             Serial.println("+/- 2 g"); break;
         }  
         
-        Serial.print(" * Gyroscope:         ");
+        Serial.print("Fondo scala del giroscopio:         ");
         switch(mpu.getScale())
         {
         case MPU6050_SCALE_2000DPS:        Serial.println("2000 dps"); break;
