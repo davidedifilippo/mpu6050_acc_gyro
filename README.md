@@ -61,7 +61,7 @@ se divido per 9.81 questa quantità, troverò l'accelerazione in g. Ad esempio s
         Serial.print(" Xraw = ");
         Serial.print(rawAccel.XAxis);
 
-## Lettura dei dati dal giroscopio
+### Lettura dei dati del giroscopio
 
 Anche in questo caso possiamo leggere i dati grezzi oppure i dati normalizzati. Se il fondo scala fosse +-250°/s allora in corrispondenza della velocità di rotazione massima avrei il massimo positivo ossia 0111 1111 1111 1111 o anche 0x7FF.
 
@@ -78,7 +78,7 @@ Normalizzando avrei la velocità di rotazione intorno ai tre assi di riferimento
         Serial.print(rawGyro.XAxis);
         
         
-## Calcolo della posizione angolare 
+### Calcolo della posizione angolare 
 
 Dato che conosciamo la velocità angolare del sensore possiamo risalire alla posizione angolare **rispetto alla posizione iniziale al reset** moltiplicando tale velocità per il tempo. In questo modo si ottiene lo spazio angolare percorso (in realtà per alte velocità il risultato nel tempo non è accurato)
 
