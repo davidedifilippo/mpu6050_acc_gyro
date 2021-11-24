@@ -9,7 +9,7 @@
 
 Si include la libreria di gestione del sensore:
 
-    #include "MPU6050.h"
+    '#include "MPU6050.h"'
 
 Da questo momento è disponibile la classe di dispositivi MPU6050. Si crea quindi un oggetto del tipo MPU6050.
 
@@ -32,8 +32,8 @@ La **normalizzazione** serve per riportare l'accelerazione in metri al secondo q
 
     acc_normalizzata_ms = mpu.readNormalizeAccel()
 
-se divido per 9.81 questan quantità trovo l'accelerazione in g. Ad esempio se il sensore è in piano ax = 0g, ay = 0g, az = -1 
+se divido per 9.81 questa quantità, troverò l'accelerazione in g. Ad esempio se il sensore è in piano ax = 0g, ay = 0g, az = -1 
 
-##Lettura dei dati dal giroscopio
+## Lettura dei dati dal giroscopio
 
 
