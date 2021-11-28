@@ -21,7 +21,7 @@ Si inizializza il sensore dichiarando i fondo scala per il giroscopio e l'accele
 
 **Se non si specifica nessun valore nella chiamata allora i valori di default risulteranno +-2G per l'accelerazione e +-250°/s per il giroscopio**
 
-Per controllare il fondo scala impostato per la'ccelerometro si può utilizzare la seguente porzione di codice:
+Per controllare il fondo scala impostato per l'accelerometro si può utilizzare la seguente porzione di codice:
         
         Serial.print(" Fondo scala accelerometro:         ");
         
